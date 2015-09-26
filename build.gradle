@@ -1,0 +1,24 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'org.encog:encog-core:3.3.0'
+    compile 'com.beust:jcommander:1.35'
+    compile 'ch.qos.logback:logback-classic:1.1.2'
+}
+
+apply plugin: 'application'
+mainClassName = 'za.redbridge.controller.Main'
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'za.redbridge.controller.Main'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}

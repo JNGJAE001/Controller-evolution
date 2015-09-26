@@ -1,0 +1,23 @@
+# Class files
+*.class
+
+# Virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Gradle
+.gradle/
+build/
+
+# Mac OS X mess
+.DS_Store
+
+# gedit backups
+*~
+
+# IDE
+*.iml
+.idea/
+
+# Temp files
+results/
+
